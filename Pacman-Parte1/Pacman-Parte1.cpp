@@ -35,7 +35,6 @@ void Setup() { //FUNCION PARA PREPARAR MAPA
 }
 
 
-
 void Input() {
 	char input;
 	cin >> input;
@@ -120,3 +119,6 @@ int main() {
 
 
 }
+
+
+
