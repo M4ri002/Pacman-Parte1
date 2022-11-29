@@ -59,6 +59,17 @@ void Setup() { //FUNCION PARA PREPARAR MAPA
 	map[11][Map_Horizontal - 1] = CASILLAS::EMPTY;
 	map[12][Map_Horizontal - 1] = CASILLAS::EMPTY;
 	map[13][Map_Horizontal - 1] = CASILLAS::EMPTY;
+
+	for (size_t i = 0; i < Map_Vertical; i++)
+	{
+		for (size_t j = 0; j < Map_Horizontal; j++)
+		{
+			if (map[i][j] == CASILLAS::POINT) // PINTA AL PERSONAJE
+			{
+				puntuacionTotal++;
+			}
+		}
+	}
 }
 
 
@@ -163,6 +174,7 @@ void Draw() { // FUNCION PARA DIBUJAR MAPA
 		}
 		cout << endl;
 	}
+	cout << puntuacionActual << '/' << puntuacionTotal;
 }
 
 
