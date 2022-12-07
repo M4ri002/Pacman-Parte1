@@ -1,10 +1,13 @@
 #include <iostream>
 #define Map_Vertical 29 //ESTO DEFINE QUE Map_Vertical VA A SER 29 EN TODO EL CODIGO
 #define Map_Horizontal 120
+#define Map_Muro_x 15
+#define Map_Muro_y 20
 #define Peronaje '$'
 using namespace std; // AHORRA PONER std
-enum CASILLAS {EMPTY = ' ', H_WALL = '-', V_WALL = '*', POINT = '.' };
+enum CASILLAS {EMPTY = ' ', H_WALL = '-', V_WALL = '*', MURO = '%', POINT = '.' };
 char map[Map_Vertical][Map_Horizontal]; //ARRAY 2D
+char muros[Map_Muro_x][Map_Muro_y];
 bool run = true;
 
 
@@ -20,8 +23,10 @@ int puntuacionTotal;
 
 
 void Setup() { //FUNCION PARA PREPARAR MAPA
+
 	personaje_x = Map_Horizontal / 2;
 	personaje_y = Map_Vertical / 2;
+
 	for (size_t i = 0; i < Map_Vertical; i++)
 	{
 		for (size_t j = 0; j < Map_Horizontal; j++)
@@ -34,6 +39,7 @@ void Setup() { //FUNCION PARA PREPARAR MAPA
 			else if (j == 0 || j == Map_Horizontal - 1)
 			{
 				map[i][j] = CASILLAS::V_WALL;
+
 			}
 			else
 			{
@@ -43,12 +49,50 @@ void Setup() { //FUNCION PARA PREPARAR MAPA
 
 		}
 	}
-	map[10][3] = CASILLAS::POINT;
-	map[11][4] = CASILLAS::POINT;
-	map[12][5] = CASILLAS::POINT;
-	map[13][6] = CASILLAS::POINT;
 
-	
+	map[7][46] = CASILLAS::POINT;
+	map[9][10] = CASILLAS::POINT;
+	map[15][88] = CASILLAS::POINT;
+	map[13][67] = CASILLAS::POINT;
+	map[10][90] = CASILLAS::POINT;
+	map[21][42] = CASILLAS::POINT;
+	map[4][50] = CASILLAS::POINT;
+	map[3][50] = CASILLAS::POINT;
+	map[2][45] = CASILLAS::POINT;
+	map[16][76] = CASILLAS::POINT;
+	map[24][29] = CASILLAS::POINT;
+	map[25][18] = CASILLAS::POINT;
+	map[20][68] = CASILLAS::POINT;
+	map[14][11] = CASILLAS::POINT;
+	map[17][112] = CASILLAS::POINT;
+
+
+
+
+	for (size_t i = 4; i < 10; i++)
+	{
+		map[i][Map_Horizontal/2] = CASILLAS::MURO;
+	}
+	for (size_t i = 20; i < 40; i++)
+	{
+		map[6][i] = CASILLAS::MURO;
+	}	
+	for (size_t i = 20; i < 40; i++)
+	{
+		map[23][i] = CASILLAS::MURO;
+	}
+	for (size_t i = 80; i < 100; i++)
+	{
+		map[6][i] = CASILLAS::MURO;
+	}
+	for (size_t i = 80; i < 100; i++)
+	{
+		map[23][i] = CASILLAS::MURO;
+	}
+	for (size_t i = 20; i < 26; i++)
+	{
+		map[i][Map_Horizontal / 2] = CASILLAS::MURO;
+	}
 
 	map[10][0] = CASILLAS::EMPTY;
 	map[11][0] = CASILLAS::EMPTY;
@@ -60,6 +104,8 @@ void Setup() { //FUNCION PARA PREPARAR MAPA
 	map[12][Map_Horizontal - 1] = CASILLAS::EMPTY;
 	map[13][Map_Horizontal - 1] = CASILLAS::EMPTY;
 
+
+
 	for (size_t i = 0; i < Map_Vertical; i++)
 	{
 		for (size_t j = 0; j < Map_Horizontal; j++)
@@ -67,6 +113,7 @@ void Setup() { //FUNCION PARA PREPARAR MAPA
 			if (map[i][j] == CASILLAS::POINT) // PINTA AL PERSONAJE
 			{
 				puntuacionTotal++;
+				
 			}
 		}
 	}
@@ -130,8 +177,8 @@ void Logic() {
 	case RIGHT:
 		personaje_x_new++;
 		break;
-
 	}
+
 	if (personaje_x_new < 0) //TELEPORT DE IZQUIERDA A DERECHA
 	{
 		personaje_x_new = Map_Horizontal - 1;
@@ -144,6 +191,9 @@ void Logic() {
 		break;
 
 	case CASILLAS::V_WALL:
+		break;
+
+	case CASILLAS::MURO:
 		break;
 
 	case CASILLAS::POINT:
@@ -169,12 +219,19 @@ void Draw() { // FUNCION PARA DIBUJAR MAPA
 			}
 			else
 			{
-				cout << (char)map[i][j];	
+				cout << (char)map[i][j];
 			}
 		}
 		cout << endl;
 	}
 	cout << puntuacionActual << '/' << puntuacionTotal;
+	if (puntuacionActual == 15) {
+		run = false;
+		cout << "\n********************";
+		cout << "   \nHAS GANADO!!";
+		cout << "\n********************";
+
+	}
 }
 
 
