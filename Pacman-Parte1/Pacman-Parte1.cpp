@@ -50,6 +50,7 @@ void Setup() { //FUNCION PARA PREPARAR MAPA
 		}
 	}
 
+
 	map[7][46] = CASILLAS::POINT;
 	map[9][10] = CASILLAS::POINT;
 	map[15][88] = CASILLAS::POINT;
