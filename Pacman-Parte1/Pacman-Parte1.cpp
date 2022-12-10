@@ -11,8 +11,8 @@ char muros[Map_Muro_x][Map_Muro_y];
 bool run = true;
 
 
-enum INPUT {QUIT, UP, DOWN,LEFT, RIGHT, UNKNOWN };
-INPUT currentInput = INPUT::UNKNOWN;
+enum INPUT {QUIT, UP, DOWN,LEFT, RIGHT, RELOAD };
+INPUT currentInput = INPUT::RELOAD;
 
 // POSICIONES DEL PERSONAJE
 int personaje_x;
@@ -151,8 +151,11 @@ void Input() {
 
 		currentInput = INPUT::LEFT;
 		break;
+
+	case'NULL':
+		currentInput = INPUT::RELOAD;
+		break;
 	default:
-		currentInput = INPUT::UNKNOWN;
 		break;
 	}
 }
@@ -177,6 +180,9 @@ void Logic() {
 		break;
 	case RIGHT:
 		personaje_x_new++;
+		break;
+	case RELOAD:
+		main();
 		break;
 	}
 
