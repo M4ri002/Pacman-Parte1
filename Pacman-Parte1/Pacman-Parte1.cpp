@@ -1,5 +1,4 @@
 #include <iostream>
-#include <conio.h>
 #define Map_Vertical 29 //ESTO DEFINE QUE Map_Vertical VA A SER 29 EN TODO EL CODIGO
 #define Map_Horizontal 120
 #define Map_Muro_x 15
@@ -124,51 +123,41 @@ void Setup() { //FUNCION PARA PREPARAR MAPA
 
 void Input() {
 	char input;
-	while (true) {
-		if (kbhit()) {
-			input = getch();
-			input = getch();
-
-			switch (input)
-			{
-			case 'q':
-			case 'Q':
-
-				currentInput = INPUT::QUIT;
-				break;
-			case 'w':
-			case 'W':
-
-				currentInput = INPUT::UP;
-				break;
-			case 's':
-			case 'S':
-
-				currentInput = INPUT::DOWN;
-				break;
-			case 'd':
-			case 'D':
-
-				currentInput = INPUT::RIGHT;
-				break;
-			case 'a':
-			case 'A':
-
-				currentInput = INPUT::LEFT;
-				break;
-
-			default:
-				currentInput = INPUT::UNKNOWN;
-				break;
-			}
-
-			Logic();
-			Draw();
-
-		}
-
-	}
 	
+
+	cin >> input;
+	switch (input)
+	{
+	case 'q':
+	case 'Q':
+
+		currentInput = INPUT::QUIT;
+		break;
+	case 'w':
+	case 'W':
+
+		currentInput = INPUT::UP;
+		break;
+	case 's':
+	case 'S':
+
+		currentInput = INPUT::DOWN;
+		break;
+	case 'd':
+	case 'D':
+
+		currentInput = INPUT::RIGHT;
+		break;
+	case 'a':
+	case 'A':
+
+		currentInput = INPUT::LEFT;
+		break;
+
+	default:
+		currentInput = INPUT::UNKNOWN;
+		break;
+	}
 }
 
 void Logic() {
@@ -264,7 +253,8 @@ int main() {
 	Draw();
 	while (run) {
 		Input();
-
+		Logic();
+		Draw();
 
 	}
 
