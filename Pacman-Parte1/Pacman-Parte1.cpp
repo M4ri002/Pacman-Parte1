@@ -1,4 +1,5 @@
 #include <iostream>
+#include <conio.h>
 #define Map_Vertical 29 //ESTO DEFINE QUE Map_Vertical VA A SER 29 EN TODO EL CODIGO
 #define Map_Horizontal 120
 #define Map_Muro_x 15
@@ -11,7 +12,7 @@ char muros[Map_Muro_x][Map_Muro_y];
 bool run = true;
 
 
-enum INPUT {QUIT, UP, DOWN,LEFT, RIGHT, RELOAD };
+enum INPUT {QUIT, UP, DOWN,LEFT, RIGHT, RELOAD, UNKNOWN};
 INPUT currentInput = INPUT::RELOAD;
 
 // POSICIONES DEL PERSONAJE
@@ -123,41 +124,51 @@ void Setup() { //FUNCION PARA PREPARAR MAPA
 
 void Input() {
 	char input;
-	cin >> input;
-	switch (input)
-	{
-	case 'q':
-	case 'Q':
+	while (true) {
+		if (kbhit()) {
+			input = getch();
+			input = getch();
 
-		currentInput = INPUT::QUIT;
-		break;
-	case 'w':
-	case 'W':
+			switch (input)
+			{
+			case 'q':
+			case 'Q':
 
-		currentInput = INPUT::UP;
-		break;
-	case 's':
-	case 'S':
+				currentInput = INPUT::QUIT;
+				break;
+			case 'w':
+			case 'W':
 
-		currentInput = INPUT::DOWN;
-		break;
-	case 'd':
-	case 'D':
+				currentInput = INPUT::UP;
+				break;
+			case 's':
+			case 'S':
 
-		currentInput = INPUT::RIGHT;
-		break;
-	case 'a':
-	case 'A':
+				currentInput = INPUT::DOWN;
+				break;
+			case 'd':
+			case 'D':
 
-		currentInput = INPUT::LEFT;
-		break;
+				currentInput = INPUT::RIGHT;
+				break;
+			case 'a':
+			case 'A':
 
-	case'NULL':
-		currentInput = INPUT::RELOAD;
-		break;
-	default:
-		break;
+				currentInput = INPUT::LEFT;
+				break;
+
+			default:
+				currentInput = INPUT::UNKNOWN;
+				break;
+			}
+
+			Logic();
+			Draw();
+
+		}
+
 	}
+	
 }
 
 void Logic() {
@@ -182,7 +193,10 @@ void Logic() {
 		personaje_x_new++;
 		break;
 	case RELOAD:
-		main();
+		run = false;
+		cout << "HOLA";
+		break;
+	case UNKNOWN:
 		break;
 	}
 
@@ -250,8 +264,7 @@ int main() {
 	Draw();
 	while (run) {
 		Input();
-		Logic();
-		Draw();
+
 
 	}
 
