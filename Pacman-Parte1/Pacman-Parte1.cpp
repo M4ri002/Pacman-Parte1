@@ -1,4 +1,5 @@
 #include <iostream>
+#include <conio.h>
 #define Map_Vertical 29 //ESTO DEFINE QUE Map_Vertical VA A SER 29 EN TODO EL CODIGO
 #define Map_Horizontal 120
 #define Map_Muro_x 15
@@ -120,40 +121,51 @@ void Setup() { //FUNCION PARA PREPARAR MAPA
 	}
 }
 
-
+//IZQUIERDA 97
+//ARRIBA 119
+//DERECHA 100
+//ABAJO 115
+//p = 112
 void Input() {
-	char input;
+	int input = 112;
+	
+	if (_kbhit()) {
+		input = _getch();
+		
+	}
 	
 
-	cin >> input;
+	//cin >> input;
 	switch (input)
 	{
-	case 'q':
-	case 'Q':
+	case 113:
+	/*case 'Q':*/
 
 		currentInput = INPUT::QUIT;
 		break;
-	case 'w':
-	case 'W':
+	case 119:
+	//case 'W':
 
 		currentInput = INPUT::UP;
 		break;
-	case 's':
-	case 'S':
+	case 115:
+	//case 'S':
 
 		currentInput = INPUT::DOWN;
 		break;
-	case 'd':
-	case 'D':
+	case 100:
+	//case 'D':
 
 		currentInput = INPUT::RIGHT;
 		break;
-	case 'a':
-	case 'A':
+	case 97:
+	//case 'A':
 
 		currentInput = INPUT::LEFT;
 		break;
-
+	case 112:
+		currentInput = INPUT::RELOAD;
+		break;
 	default:
 		currentInput = INPUT::UNKNOWN;
 		break;
@@ -182,8 +194,7 @@ void Logic() {
 		personaje_x_new++;
 		break;
 	case RELOAD:
-		run = false;
-		cout << "HOLA";
+		
 		break;
 	case UNKNOWN:
 		break;
