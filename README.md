@@ -4,3 +4,15 @@
 
 ## PARTICIPANTES: **TEO JIMÉNEZ Y MARIO CARAVACA**
 > Esta es nuestra primera parte del proyecto Pacman.
+
+<details><summary>CLICK ME</summary>
+<p>
+
+#### We can hide anything, even code!
+
+```ruby
+   puts "Hello World"
+```
+
+</p>
+</details>
