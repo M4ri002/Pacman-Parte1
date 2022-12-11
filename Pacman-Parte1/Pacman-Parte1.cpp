@@ -52,7 +52,7 @@ void Setup() { //FUNCION PARA PREPARAR MAPA
 
 		}
 	}
-
+	//Distribución de los puntos en el mapa
 	map[16][46] = CASILLAS::POINT;
 	map[19][10] = CASILLAS::POINT;
 	map[15][88] = CASILLAS::POINT;
