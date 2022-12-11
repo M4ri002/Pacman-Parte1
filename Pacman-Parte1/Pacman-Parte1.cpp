@@ -69,9 +69,7 @@ void Setup() { //FUNCION PARA PREPARAR MAPA
 	map[14][75] = CASILLAS::POINT;
 	map[2][99] = CASILLAS::POINT;
 
-
-
-
+	//Distribución de los muros en el mapa
 	for (size_t i = 4; i < 10; i++)
 	{
 		map[i][Map_Horizontal/2] = CASILLAS::MURO; //vertical superior
@@ -88,10 +86,10 @@ void Setup() { //FUNCION PARA PREPARAR MAPA
 	{
 		map[6][i] = CASILLAS::MURO; //horizontal superior derecha
 	}
-	//for (size_t i = 80; i < 100; i++)
-	//{
-	//	map[23][i] = CASILLAS::MURO; //horizontal inferior derecha
-	//}
+	for (size_t i = 80; i < 100; i++)
+	{
+		map[23][i] = CASILLAS::MURO; //horizontal inferior derecha
+	}
 	for (size_t i = 19; i < 25; i++)
 	{
 		map[i][Map_Horizontal / 2] = CASILLAS::MURO; //vertical inferior
