@@ -1,7 +1,7 @@
 #include <iostream>
 #define Map_Vertical 29 //ESTO DEFINE QUE Map_Vertical VA A SER 29 EN TODO EL CODIGO
 #define Map_Horizontal 120
-#define Peronaje '$'
+#define Personaje '$'
 using namespace std; // AHORRA PONER std
 enum CASILLAS {EMPTY = ' ', H_WALL = '-', V_WALL = '*', POINT = '.' };
 char map[Map_Vertical][Map_Horizontal]; //ARRAY 2D
@@ -165,7 +165,7 @@ void Draw() { // FUNCION PARA DIBUJAR MAPA
 		{
 			if (i == personaje_y && j == personaje_x) // PINTA AL PERSONAJE
 			{
-				cout << Peronaje;
+				cout << Personaje;
 			}
 			else
 			{
