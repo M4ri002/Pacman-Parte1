@@ -74,38 +74,80 @@ void Setup() { //FUNCION PARA PREPARAR MAPA
 
 	for (size_t i = 4; i < 10; i++)
 	{
-		map[i][Map_Horizontal/2] = CASILLAS::MURO;
+		map[i][Map_Horizontal/2] = CASILLAS::MURO; //vertical superior
 	}
 	for (size_t i = 20; i < 40; i++)
 	{
-		map[6][i] = CASILLAS::MURO;
+		map[6][i] = CASILLAS::MURO; //horizontal superior izquierda
 	}	
 	for (size_t i = 20; i < 40; i++)
 	{
-		map[23][i] = CASILLAS::MURO;
+		map[23][i] = CASILLAS::MURO; //horizontal inferior izquierda
 	}
 	for (size_t i = 80; i < 100; i++)
 	{
-		map[6][i] = CASILLAS::MURO;
+		map[6][i] = CASILLAS::MURO; //horizontal superior derecha
 	}
-	for (size_t i = 80; i < 100; i++)
+	//for (size_t i = 80; i < 100; i++)
+	//{
+	//	map[23][i] = CASILLAS::MURO; //horizontal inferior derecha
+	//}
+	for (size_t i = 19; i < 25; i++)
 	{
-		map[23][i] = CASILLAS::MURO;
+		map[i][Map_Horizontal / 2] = CASILLAS::MURO; //vertical inferior
 	}
-	for (size_t i = 20; i < 26; i++)
+	for (size_t i = 11; i < 13; i++)
 	{
-		map[i][Map_Horizontal / 2] = CASILLAS::MURO;
+		map[i][Map_Horizontal / 2 + 7] = CASILLAS::MURO; //parte esquina superior derecha
+	}
+	for (size_t i = 16; i < 18; i++)
+	{
+		map[i][Map_Horizontal / 2 + 7] = CASILLAS::MURO; //parte esquina inferior derecha
+	}
+	for (size_t i = 11; i < 13; i++)
+	{
+		map[i][Map_Horizontal / 2 - 7] = CASILLAS::MURO; //parte esquina superior izquierda
+	}
+	for (size_t i = 16; i < 18; i++)
+	{
+		map[i][Map_Horizontal / 2 - 7] = CASILLAS::MURO; //parte esquina inferior izquierda
+	}
+	for (size_t i = 66; i < 67; i++) 
+	{
+		map[11][i] = CASILLAS::MURO; //parte esquina superior derecha
+	}
+	for (size_t i = 58; i < 63; i++)
+	{
+		map[11][i] = CASILLAS::MURO; //centro superior
+	}
+	for (size_t i = 66; i < 67; i++)
+	{
+		map[17][i] = CASILLAS::MURO; //parte esquina inferior derecha
+	}
+	for (size_t i = 58; i < 63; i++)
+	{
+		map[17][i] = CASILLAS::MURO; //centro inferior
+	}
+	for (size_t i = 54; i < 55; i++)
+	{
+		map[17][i] = CASILLAS::MURO; //parte esquina inferior izquierda
+	}
+	for (size_t i = 54; i < 55; i++)
+	{
+		map[11][i] = CASILLAS::MURO; // parte esquina superior izquierda
 	}
 
-	map[10][0] = CASILLAS::EMPTY;
-	map[11][0] = CASILLAS::EMPTY;
 	map[12][0] = CASILLAS::EMPTY;
 	map[13][0] = CASILLAS::EMPTY;
+	map[14][0] = CASILLAS::EMPTY;
+	map[15][0] = CASILLAS::EMPTY;
+	map[16][0] = CASILLAS::EMPTY;
 
-	map[10][Map_Horizontal - 1] = CASILLAS::EMPTY;
-	map[11][Map_Horizontal - 1] = CASILLAS::EMPTY;
 	map[12][Map_Horizontal - 1] = CASILLAS::EMPTY;
 	map[13][Map_Horizontal - 1] = CASILLAS::EMPTY;
+	map[14][Map_Horizontal - 1] = CASILLAS::EMPTY;
+	map[15][Map_Horizontal - 1] = CASILLAS::EMPTY;
+	map[16][Map_Horizontal - 1] = CASILLAS::EMPTY;
 
 
 	
