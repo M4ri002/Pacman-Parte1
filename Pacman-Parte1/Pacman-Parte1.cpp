@@ -129,6 +129,8 @@ void Setup() { //FUNCION PARA PREPARAR MAPA
 void Input() {
 	int input = 112;
 	
+//Recoje el input sin el enter
+//Mediante el codigo Ascii y su tabla
 	if (_kbhit()) {
 		input = _getch();
 		
